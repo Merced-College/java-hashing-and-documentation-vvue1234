@@ -1,7 +1,12 @@
-package hashingAndDocumentation;
 import java.util.List;
 import java.util.Arrays;
 import java.util.Objects;
+
+/**
+ * The SongRecord class stores the information for each song
+ * Includes details such as the artist(s), year of release, popularity, and
+ * musical information such as tempo, acousticness, loudness, etc
+ */
 
 public class SongRecord {
     // Instance variables
@@ -13,7 +18,7 @@ public class SongRecord {
     private int durationMs;
     private double energy;
     private int explicit;
-    private String id;
+    private String id; 
     private double instrumentalness;
     private int key;
     private double liveness;
@@ -25,7 +30,10 @@ public class SongRecord {
     private double speechiness;
     private double tempo;
 
-    // Default constructor
+    /**
+     * Constructs a SongRecord with default values
+     * This constructor is useful to create an empty or placeholder song record
+     */
     public SongRecord() {
         this.valence = 0.0;
         this.year = 0;
@@ -48,7 +56,14 @@ public class SongRecord {
         this.tempo = 0.0;
     }
 
-    // Constructor that takes a CSV string and parses it
+    /**
+    * Constructs a SongRecord object by parsing a line of comma-separated values (CSV).
+     * Expected order in the CSV: valence, year, acousticness, artists, danceability,
+    * duration_ms, energy, explicit, id, instrumentalness, key, liveness,
+    * loudness, mode, name, popularity, release_date, speechiness, tempo.
+    *
+    * @param data A comma-separated string representing song attributes.
+    */
     public SongRecord(String data) {
         String[] fields = data.split(","); // Assuming comma-separated values
         
@@ -164,7 +179,13 @@ public class SongRecord {
                 '}';
     }
 
-    // equals method
+    /**
+    * Checks if this SongRecord is equal to another object.
+    * Two SongRecord objects are considered equal if all their fields match.
+    *
+    * @param o The object to compare with.
+    * @return true if the objects are equal, false otherwise.
+    */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

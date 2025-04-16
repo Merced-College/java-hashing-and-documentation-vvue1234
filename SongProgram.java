@@ -1,5 +1,3 @@
-package hashingAndDocumentation;//comment this out if you do not need a package
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,6 +11,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+/**
+ * The SongProgram class manages a collection of songs,
+ * which are loaded from a CSV file and stored in a HashMap for efficient lookup by ID.
+ * It provides functionality for retrieving song data, displaying all records,
+ * and launching a GUI to search for songs by ID.
+ */
+
 public class SongProgram {
 
     // HashMap to store SongRecords with the song's ID as the key
@@ -23,7 +28,13 @@ public class SongProgram {
         songMap = new HashMap<>();
     }
 
-    // Method to load songs from a CSV file
+    /**
+    * Loads song records from a CSV file located at the specified file path.
+    * Each line of the CSV (after the header) is used to create a SongRecord
+    * which is stored in a map for quick access by song ID.
+    *
+    * @param filePath The path to the CSV file containing song data.
+    */
     public void loadSongsFromCSV(String filePath) {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -49,14 +60,20 @@ public class SongProgram {
         return songMap.get(id);
     }
 
-    // Method to print all songs (for debugging or display purposes)
+    /**
+    * Prints all songs stored in the song map to the console.
+    * Useful for debugging or reviewing the full dataset.
+    */
     public void printAllSongs() {
         for (SongRecord song : songMap.values()) {
             System.out.println(song);
         }
     }
     
-    // GUI method to search for a song by ID
+    /**
+     * Opens a GUI that allows users to search
+     * for songs using their ID
+     */
     public void openSearchGui() {
         // Create the main frame
         JFrame frame = new JFrame("Song Lookup");
@@ -102,7 +119,10 @@ public class SongProgram {
         frame.setVisible(true);
     }
 
-    // Main method to demonstrate functionality and open GUI
+    /**
+    * Loads song data from a CSV file and launches the GUI for song searching.
+    * Use this method to test the program with the search interface.
+    */
     public static void main2(String[] args) {
         SongProgram program = new SongProgram();
 
@@ -114,7 +134,11 @@ public class SongProgram {
         program.openSearchGui();
     }
 
-    // Main method to demonstrate functionality
+    /**
+     * Main method that demonstrates basic functionality of the SongProgram class.
+    * It loads songs from a CSV, searches for a specific ID, and prints all songs.
+    *
+    */
     public static void main(String[] args) {
         SongProgram program = new SongProgram();
 
